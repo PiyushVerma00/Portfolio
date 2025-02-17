@@ -3,6 +3,8 @@ import {ApiError} from "../utils/ApiError.js"
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { Projects } from "../models/project.model.js";
 import { log } from "console";
+import fs from "fs"
+import path from "path"
 
 
 // only show projects (for visitor) 
@@ -36,12 +38,18 @@ const addProject = asyncHandler(async (req,res)=>{
     if(!imageLocalPath){
         throw new ApiError(400,"image file is required")
     }
+    
+    
+    if (!fs.existsSync(imageLocalPath)) {
+        throw new ApiError(400, "Uploaded file not found.");
+    }
+    console.log("Uploading image:", imageLocalPath);
    
-    const absolutePath = path.resolve(imageLocalPath);
-const image = await uploadOnCloudinary(absolutePath);
+//     const absolutePath = path.resolve(imageLocalPath);
+// const image = await uploadOnCloudinary(absolutePath);
 
 
-    // const image = await uploadOnCloudinary(imageLocalPath)
+    const image = await uploadOnCloudinary(imageLocalPath)
 
     if(!image){
         throw new ApiError(400,"error while uploading image")
@@ -50,7 +58,7 @@ const image = await uploadOnCloudinary(absolutePath);
     const project =  await Projects.create({
         title,
         description,
-        image: image.url
+        imageUrl: image.url
     })
 
    return res.redirect("/admin")
