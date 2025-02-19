@@ -1,7 +1,8 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import {ApiError} from "../utils/ApiError.js"
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { removeFromCloudinary, uploadOnCloudinary } from "../utils/cloudinary.js";
 import { Projects } from "../models/project.model.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
 import { log } from "console";
 import fs from "fs"
 import path from "path"
@@ -70,11 +71,22 @@ const deleteProject = asyncHandler(async(req,res)=>{
     //  need id for delete
     // project findoneanddelete(id)
     // redirect
+
+    // find project to delete
     const id = req.params.id
-    await Projects.findByIdAndDelete(id)
+   const project =  await Projects.findById(id)
+    if(!project){
+        throw new ApiError(404,"project not found")
+    }
+    //  delete from cloudinary
+    await removeFromCloudinary(project.imageUrl)
+
+    // delete from db
+    await Projects.findByIdAndDelete(id);
     return res
-    // .json(new ApiResponse(200, {}, "project deleted successfully"))
-    .redirect("/admin")
+    .status(200)
+    .json(new ApiResponse(200, {}, "project deleted successfully", true));
+   
 })
 
 

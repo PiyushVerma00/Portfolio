@@ -1,25 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
+    background: linear-gradient(135deg, #212121, #424242);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #212121;
+    height: 100vh;
+    /* background: #212121; */
     text-align: center;
     /* color: white; */
     
 }
 
 header {
-    /* background: #424242; */
-    background: linear-gradient(135deg, #212121, #424242);
-
+    background: #424242;
+/* margin: 0 10px; */
     color: #fff;
     padding: 15px;
-    display: flex;
+    display: flex;;
     justify-content: space-between;
     align-items: center;
 }
+
 main h2{
     color: white;
+    margin-top: 10px;
 }
 
 .btn {
@@ -34,26 +42,68 @@ main h2{
 .project-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
-    gap: 20px;
     padding: 20px;
+    padding-bottom: 0px;
 }
 
 .project-card {
-    background: white;
-    padding: 15px;
-    width: 250px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust as needed */
+    background: #212121;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s linear, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: left;
+    padding-bottom: 15px;
+ 
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
 
-.project-card img {
+
+.project-image {
     width: 100%;
-    border-radius: 5px;
+    height: 260px; /* Fixed height */
+    object-fit: cover;     /* Ensures images maintain aspect ratio and fill space */
+    object-position: top;
+    border-bottom: 2px solid #fff;
+    background-color: #333;
+
+}
+.project-card h3 {
+    color: #fff;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.project-card p{
+    font-size: 14px;
+    padding: 0 10px;
+    flex-grow: 1;
+    color: #747373;
 }
 
 .delete-btn {
     background: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+.delete-btn:hover {
+    background: darkred;
+
 }
 

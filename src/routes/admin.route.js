@@ -14,6 +14,6 @@ router.route("/").get(renderAdminPage); //admin dashboard
 router.route("/add").get(addProjectPage); // add project page
 
 router.route("/add").post(upload.single("image"), addProject); // add project
-router.route("/delete/:id").post(deleteProject); // delete project
+router.route("/delete/:id").delete(deleteProject); // delete project
 
 export default router;

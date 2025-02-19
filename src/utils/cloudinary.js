@@ -2,6 +2,7 @@ import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import "dotenv/config";
 
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_CLOUD_APIKEY,
@@ -28,4 +29,16 @@ const uploadOnCloudinary = async (localfilePath) => {
   }
 };
 
-export { uploadOnCloudinary };
+const removeFromCloudinary = async (imageUrl) =>{
+  try {
+    if(!imageUrl) return null;
+    const publicId = imageUrl.split('/upload/')[1].split('.')[0];
+    const response = await cloudinary.uploader.destroy(publicId);
+    return response;
+  } catch (error) {
+    return null;
+  }
+}
+
+
+export { uploadOnCloudinary,removeFromCloudinary };
