@@ -5,78 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ayushi's Portfolio</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css"
+    />
   </head>
   <body>
-    <%-include("./partials/header") %>
+    <section class="main" >
+      <div id="loader">
+        <h1 class="reveal">
+          <span>Ayushi</span> <span class="text">Verma</span> <span>is</span>
+          <span>a</span>
+        </h1>
+      </div>
 
-    <section class="main">
-      <!-- From Uiverse.io by csemszepp -->
+      <div id="red"></div>
 
-      <h2>So much more than pixels.</h2>
-      <p>
-        Hello, my name is Ayushi and I'm passionate about making <br />
-        things that make an impact.
-      </p>
+      <div class="page1" >
+        <div class="nav">
+          <a href="#"
+            >Logo
+            <span id="line1" class="line"></span>
+            <span id="line2" class="line"></span>
+          </a>
+          <a href="#" 
+            >About
+            <span id="line1" class="line"></span>
+            <span id="line2" class="line"></span>
+          </a>
+          <a href="#" 
+            >Work
+            <span id="line1" class="line"></span>
+            <span id="line2" class="line"></span>
+          </a>
+          <a href="#" 
+            >Contact
+            <span id="line1" class="line"></span>
+            <span id="line2" class="line"></span>
+          </a>
+        </div>
+        <div class="row">
+          <h1 class="reveal">Creative</h1>
+          <span class="graphic"
+            ><dotlottie-player
+              src="https://lottie.host/12dd6c65-9d34-4e6f-a069-f8a03616aeac/4ixFKRmJdU.lottie"
+              background="transparent"
+              speed="1.4"
+              loop
+              autoplay
+            ></dotlottie-player
+          ></span>
+        </div>
+        <div class="row">
+          <a href="#" class="reveal"><span>SEE MY WORK</span></a>
+          <h1 class="reveal">Designer</h1>
+        </div>
+      
+      </div>
+        <section class="about">
+          <div class="content">
+            <p><span>I am Ayushi Verma,</span></p>
+            <p>
+              <span>who loves<span>creating</span></span>
+            </p>
+            <p><span>sleek and modern</span></p>
+            <p><span>visuals. I'm passionate</span></p>
+            <p><span>about making things</span></p>
+            <p><span>that make an impact.</span></p>
+          </div>
+          <div class="image">
+            <div class="imgcnt"></div>
+            <div class="imgcnt"></div>
+            <div class="imgcnt"></div>
+          </div>
+        </section>
+     
+        <section id="work">
 
-      <div class="main-btn">
-        <a href="/project"><button class="btn">SEE MY WORK</button></a>
-        <a href="#contact"><button class="btn">HIRE ME</button></a>
+        
+      <div id="project" class="projects" >
+        <div class="flow ">
+          <h2 class="reveal">
+            <span>W</span><span>o</span><span class="text">r</span><span>k</span
+            ><span>s</span>
+          </h2>
+          <svg class="o-ui-arrow" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3.10162 3.10156L62.9999 62.9999" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M63 1.00001L63 63L0.999989 63" stroke-linecap="round" stroke-linejoin="round"></path> </svg>
+        </div>
+        <div class="project-row">
+          <div class="images">
+            <div class="cnt imageCnt1">
+              <img
+                data-scroll
+                data-scroll-speed="-1.5"
+                src="https://abhishekjha.me/aeizei.7edf201c.png"
+                alt=""
+              />
+              <p class="image-title">Title</p>
+            </div>
+            <div class="cnt imageCnt2">
+              <img
+                data-scroll
+                data-scroll-speed="-1.5"
+                src="https://abhishekjha.me/display.835f9d62.png"
+                alt=""
+              />
+              <p class="image-title">Title</p>
+            </div>
+          </div>
+        </div>
+        <div class="project-row">
+          <div class="images">
+            <div class="cnt imageCnt3">
+              <img
+                data-scroll
+                data-scroll-speed="-1.5"
+                src="https://abhishekjha.me/quaive.6fc624fe.png"
+                alt=""
+              />
+              <p class="image-title">Title</p>
+            </div>
+          </div>
+        </div>
+        <div class="project-row">
+          <div class="images">
+            <div class="cnt imageCnt4">
+              <img
+                data-scroll
+                data-scroll-speed="-1.5"
+                src="https://abhishekjha.me/muteza.4faa619b.png"
+                alt=""
+              />
+              <p class="image-title">Title</p>
+            </div>
+            <div class="cnt imageCnt5">
+              <img
+                data-scroll
+                data-scroll-speed="-1.5"
+                src="https://abhishekjha.me/visavia4.631e000e.png"
+                alt=""
+              />
+              <p class="image-title">Title</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section id="project" class="project">
-
-      <div class="card-container">
-        <div class="card">
-          <div class="front-content">
-            <p>Hover me</p>
-          </div>
-          <div class="content">
-            <p class="heading">Card Hover</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipii voluptas ten
-              mollitia pariatur odit, ab minus ratione adipisci accusamus vel
-              est excepturi laboriosam magnam necessitatibus dignissimos
-              molestias.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card">
-          <div class="front-content">
-            <p>Hover me</p>
-          </div>
-          <div class="content">
-            <p class="heading">Card Hover</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipii voluptas ten
-              mollitia pariatur odit, ab minus ratione adipisci accusamus vel
-              est excepturi laboriosam magnam necessitatibus dignissimos
-              molestias.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card">
-          <div class="front-content">
-            <p>Hover me</p>
-          </div>
-          <div class="content">
-            <p class="heading">Card Hover</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipii voluptas ten
-              mollitia pariatur odit, ab minus ratione adipisci accusamus vel
-              est excepturi laboriosam magnam necessitatibus dignissimos
-              molestias.
-            </p>
-          </div>
-        </div>
-      </div>
-
-
-
     </section>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <script src="/js/script.js"></script>
   </body>
 </html>
