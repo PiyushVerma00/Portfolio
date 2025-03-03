@@ -68,14 +68,14 @@ function animateHomePage() {
   t1.to(".nav a", {
     y: 0,
     opacity: 1,
-    duration: 0.8,
+    duration: 0.6,
     stagger: 0.16,
     ease: Power2.easeInOut,
   })
   .to(".page1 span .child", {
     y: 0,
     duration: 1,
-    delay: -0.9,
+    delay: -1,
     stagger: 0.2,
     ease: Power3.easeInOut,
   })
@@ -91,7 +91,7 @@ function animateHomePage() {
     x: "-67%", 
     opacity: 1,
     duration: 1,
-    stagger: 0.1,
+    stagger: 0.15,
     delay: -0.5,
     ease: Power3.easeInOut,
   })
@@ -105,7 +105,7 @@ function animateHomePage() {
     scrollTrigger: {
         trigger: ".about",
         scroller: ".main",
-        start: "top 40%",  // Animates when it enters 80% of the viewport
+        start: "top 75%",  // Animates when it enters 80% of the viewport
         end: "top 3%",  // Ends at 50% viewport height
         toggleActions: "play none none reverse", // Runs forward, reverses on scroll back
         scrub: 1,  // Smooth transition while scrolling
