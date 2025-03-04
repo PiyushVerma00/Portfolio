@@ -23,6 +23,7 @@ import homeRoute from "./routes/home.route.js"
 import adminRoute from "./routes/admin.route.js"
 import projectRoute from "./routes/project.route.js"
 import adminAuthRoute from "./routes/adminAuth.route.js"
+import contactRoute from "./routes/contact.route.js"
 // app.get("/", (req,res)=>{
 //     res.send("welcome to my page")
 // })
@@ -30,6 +31,8 @@ app.use("/", homeRoute)
 app.use("/admin", adminRoute)
 app.use("/project", projectRoute)
 app.use("/admin/auth",adminAuthRoute)
+app.use("/contact",contactRoute)
+
 
 
 

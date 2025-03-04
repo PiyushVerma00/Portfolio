@@ -21,7 +21,6 @@ const adminSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Admin = mongoose.model("Admin", adminSchema);
 
 
 // adminSchema.pre("save",async function(next){
@@ -43,5 +42,7 @@ adminSchema.methods.generateToken = function(){
   }    
 )
 }
+const Admin = mongoose.model("Admin", adminSchema);
+
 
 export { Admin };

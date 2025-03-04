@@ -105,7 +105,7 @@ function animateHomePage() {
     scrollTrigger: {
         trigger: ".about",
         scroller: ".main",
-        start: "top 75%",  // Animates when it enters 80% of the viewport
+        start: "top 80%",  // Animates when it enters 80% of the viewport
         end: "top 3%",  // Ends at 50% viewport height
         toggleActions: "play none none reverse", // Runs forward, reverses on scroll back
         scrub: 1,  // Smooth transition while scrolling
@@ -258,9 +258,9 @@ function hoverAnimation(){
 
 document.addEventListener("DOMContentLoaded",()=>{
     locoInit()
-    revealToSpan();
-    valueSetters();
-    loaderAnimation();
+    // revealToSpan();
+    // valueSetters();
+    // loaderAnimation();
     imageTilt()
     hoverAnimation()
 })

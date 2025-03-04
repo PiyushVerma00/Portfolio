@@ -25,16 +25,13 @@ const adminLogin = asyncHandler(async(req,res)=>{
         throw new ApiError(400,"Both Email and Password are required")
     }
    const admin =  await Admin.findOne({email});
-   console.log("admin found :",admin);
+
    
 
     if(!admin){
         throw new ApiError(401,"Invalid Credentials")
     }
-    if(!admin.isPasswordCorrect){
-        console.log("method is missing");
-        
-    }
+   
     const isPasswordValid = await admin.isPasswordCorrect(password)
     if(!isPasswordValid){
         throw new ApiError(401,"Invalid Credentials")
