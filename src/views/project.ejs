@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WORK-AYUSHI'S PORTFOLIO</title>
+    <link rel="stylesheet" href="/css/project.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css"
+  />
+  <link rel="stylesheet" href="/css/responsive/project-responsive.css">
+  </head>
+  <body>
+    <div class="main" data-scroll-container>
+      <div class="nav">
+        <a href="/"
+          >Logo
+          <span id="line1" class="line"></span>
+          <span id="line2" class="line"></span>
+        </a>
+        <a href="/project"
+          >Project
+          <span id="line1" class="line"></span>
+          <span id="line2" class="line"></span>
+        </a>
+        <a href="https://www.instagram.com/ayushi880095/" target="_blank"
+          >Social
+          <span id="line1" class="line"></span>
+          <span id="line2" class="line"></span>
+        </a>
+        <a href="mailto:piyushv379@gmail.com" target="_blank"
+          >Contact
+          <span id="line1" class="line"></span>
+          <span id="line2" class="line"></span>
+        </a>
+      </div>
+      <div class="projects">
+        <h2>Previous Wo<span>r</span>k:</h2>
+
+        <div class="content">
+          <% if (projects.length > 0) { %>
+          <% projects.forEach(project => { %>
+
+          <div class="project-box">
+            <div class="imgcnt">
+              <img src= "<%=project.imageUrl%>" alt="image" />
+            </div>
+            <div class="desc">
+              <h4><%= project.title %></h4>
+              <p><%= project.description %></p>
+            </div>
+          </div>
+          <% }); %>
+          <% } else { %>
+            <p class="no-projects">No projects available.</p>
+        <% } %>
+        </div>
+      </div>
+
+      <div class="contact" id="contact">
+        <div class="info">
+          <h1>Let's Work Together</h1>
+          <p>
+            Got an idea? Let’s make it happen before it ends up in the ‘someday’ folder
+          </p>
+        </div>
+
+        <div class="contact-content">
+          <form id="contact-form" action="/contact" method="post">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send</button>
+          </form>
+
+          <span>
+            <dotlottie-player
+              src="https://lottie.host/76118b5f-0dde-4d89-b4af-cbfc5cbf731e/GEDE4OnARf.lottie"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </span>
+        </div>
+
+        <div class="footer">
+          <p class="footer-p">&copy;<span id="year"></span> Ayushi Verma, All Right Reserved • <a href="#" id="creditBtn">Credits</a></p>
+
+          <div id="credit-overlay">
+              <div id="credit-content">
+                <div class="order1">
+                  <p>Technologies</p>
+                   
+                    <a href="https://github.com/locomotivemtl/locomotive-scroll" target="_blank">Locomotive Scroll,</a>
+                    <a href="https://gsap.com/" target="_blank">GSAP</a>
+                  
+                </div>
+                <div class="order2">
+                  <p>Fonts</p>
+                   <a href="https://www.collletttivo.it/" target="_blank">Mazius,</a>
+                      <a href="https://www.tinkov.info/" target="_blank">Gilroy</a>
+                </div>
+                <div class="order3">
+                  <p>Design Inspired from</p>
+                   <a href="https://abhishekjha.me/" target="_blank">Abhishek jha</a> 
+                      
+                </div>
+
+
+                <span id="close-btn">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title/><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3.21,11.79a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0L12,13.41l-1.79,1.8a1,1,0,0,1-1.42,0,1,1,0,0,1,0-1.42L10.59,12l-1.8-1.79a1,1,0,0,1,1.42-1.42L12,10.59l1.79-1.8a1,1,0,0,1,1.42,1.42L13.41,12Z" fill="#851717" width="24px" height="24px"/></svg>
+                </span>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="/js/Project-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+@media screen and (max-width:767px){
+
+    .nav {
+        position: relative;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5vw;
+      }
+    
+      .nav a:first-child {
+        font-size: 20px; /* Adjust size if needed */
+        font-weight: bold;
+      }
+      .nav a:not(:first-child) {
+        display: none;
+      }
+}

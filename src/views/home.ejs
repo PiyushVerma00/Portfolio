@@ -5,40 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ayushi's Portfolio</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive/responsive.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css"
     />
   </head>
   <body>
-    <section class="main" >
-      <div id="loader">
-        <h1 class="reveal">
-          <span>Ayushi</span> <span class="text">Verma</span> <span>is</span>
-          <span>a</span>
-        </h1>
-      </div>
+    <div id="loader">
+      <h1 class="reveal">
+        <span>Ayushi</span> <span class="text">Verma</span> <span>is</span>
+        <span>a</span>
+      </h1>
+    </div>
 
+    <div class="main" data-scroll-container>
       <div id="red"></div>
 
-      <div class="page1" id="page1" >
+      <div class="page1" id="page1">
         <div class="nav">
-          <a href="#"
+          <a href="/"
             >Logo
             <span id="line1" class="line"></span>
             <span id="line2" class="line"></span>
           </a>
-          <a href="#" 
-            >About
+         
+          <a href="/project"
+            >Project
             <span id="line1" class="line"></span>
             <span id="line2" class="line"></span>
           </a>
-          <a href="#" 
-            >Work
+          <a href="https://www.instagram.com/ayushi880095/" target="_blank"
+            >Social
             <span id="line1" class="line"></span>
             <span id="line2" class="line"></span>
           </a>
-          <a href="#" 
+          <a href="mailto:piyushv379@gmail.com" target="_blank"
             >Contact
             <span id="line1" class="line"></span>
             <span id="line2" class="line"></span>
@@ -50,19 +52,17 @@
             ><dotlottie-player
               src="https://lottie.host/12dd6c65-9d34-4e6f-a069-f8a03616aeac/4ixFKRmJdU.lottie"
               background="transparent"
-              speed="1.5"
+              speed="0.8"
               loop
               autoplay
-
             ></dotlottie-player
           ></span>
         </div>
-        <div class="row">
-          <a href="#" class="reveal"><span>SEE MY WORK</span></a>
+        <div class="row row2">
+          <a href="/project" class="reveal"><span>SEE MY WORK</span></a>
           <h1 class="reveal">Designer</h1>
         </div>
-     
-     
+        
         <div class="about">
           <div class="content">
             <p><span>I am Ayushi Verma,</span></p>
@@ -81,101 +81,168 @@
           </div>
         </div>
       </div>
-     
-     
-        <section id="work">
 
-        
-      <div id="project" class="projects" >
-        <div class="flow ">
-          <h2 class="reveal">
-            <span>W</span><span>o</span><span class="text">r</span><span>k</span
-            ><span>s</span>
-          </h2>
-          <svg class="o-ui-arrow" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3.10162 3.10156L62.9999 62.9999" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M63 1.00001L63 63L0.999989 63" stroke-linecap="round" stroke-linejoin="round"></path> </svg>
-        </div>
-        <div class="project-row">
-          <div class="images">
-            <div class="cnt imageCnt1">
-              <img
-                data-scroll
-                data-scroll-speed="-1.5"
-                src="https://abhishekjha.me/aeizei.7edf201c.png"
-                alt=""
-              />
-              <p class="image-title">Title</p>
-            </div>
-            <div class="cnt imageCnt2">
-              <img
-                data-scroll
-                data-scroll-speed="-1.5"
-                src="https://abhishekjha.me/display.835f9d62.png"
-                alt=""
-              />
-              <p class="image-title">Title</p>
+      <div id="work">
+        <div id="project" class="projects">
+          <div class="flow">
+            <h2 class="reveal">
+              <span>W</span><span>o</span><span class="text">r</span
+              ><span>k</span><span>s</span>
+            </h2>
+            <svg
+              class="o-ui-arrow"
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.10162 3.10156L62.9999 62.9999"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M63 1.00001L63 63L0.999989 63"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </div>
+          <div class="project-row">
+            <div class="images">
+              <div class="cnt imageCnt1 " >
+                <img
+                  data-scroll
+                  data-scroll-speed="-0.5"
+                  src="https://abhishekjha.me/aeizei.7edf201c.png"
+                  alt=""
+                />
+                <p class="image-title">Title</p>
+              </div>
+              <div class="cnt imageCnt2">
+                <img
+                  data-scroll
+                  data-scroll-speed="-1.5"
+                  src="https://abhishekjha.me/display.835f9d62.png"
+                  alt=""
+                />
+                <p class="image-title">Title</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="project-row">
-          <div class="images">
-            <div class="cnt imageCnt3">
-              <img
-                data-scroll
-                data-scroll-speed="-1.5"
-                src="https://abhishekjha.me/quaive.6fc624fe.png"
-                alt=""
-              />
-              <p class="image-title">Title</p>
+          <div class="project-row">
+            <div class="images">
+              <div class="cnt imageCnt3">
+                <img
+                  data-scroll
+                  data-scroll-speed="-1.5"
+                  src="https://abhishekjha.me/quaive.6fc624fe.png"
+                  alt=""
+                />
+                <p class="image-title">Title</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="project-row">
-          <div class="images">
-            <div class="cnt imageCnt4">
-              <img
-                data-scroll
-                data-scroll-speed="-1.5"
-                src="https://abhishekjha.me/muteza.4faa619b.png"
-                alt=""
-              />
-              <p class="image-title">Title</p>
-            </div>
-            <div class="cnt imageCnt5">
-              <img
-                data-scroll
-                data-scroll-speed="-1.5"
-                src="https://abhishekjha.me/visavia4.631e000e.png"
-                alt=""
-              />
-              <p class="image-title">Title</p>
+          <div class="project-row">
+            <div class="images">
+              <div class="cnt imageCnt4">
+                <img
+                  data-scroll
+                  data-scroll-speed="-1.5"
+                  src="https://abhishekjha.me/muteza.4faa619b.png"
+                  alt=""
+                />
+                <p class="image-title">Title</p>
+              </div>
+              <div class="cnt imageCnt5">
+                <img
+                  data-scroll
+                  data-scroll-speed="-1.5"
+                  src="https://abhishekjha.me/visavia4.631e000e.png"
+                  alt=""
+                />
+                <p class="image-title">Title</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <div class="contact" id="contact">
-      <div class="info">
-        <h1>Let's Work Together</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, totam!</p>
+      <div class="contact" id="contact">
+        <div class="info">
+          <h1>Let's Work Together</h1>
+          <p>
+            Got an idea? Let’s make it happen before it ends up in the ‘someday’ folder
+          </p>
+        </div>
+
+        <div class="contact-content">
+          <form id="contact-form" action="/contact" method="post">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send</button>
+          </form>
+
+          <span>
+            <dotlottie-player
+              src="https://lottie.host/76118b5f-0dde-4d89-b4af-cbfc5cbf731e/GEDE4OnARf.lottie"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </span>
+        </div>
+
+        <div class="footer">
+          <p class="footer-p">&copy;<span id="year"></span> Ayushi Verma, All Right Reserved • <a href="#" id="creditBtn">Credits</a></p>
+
+          <div id="credit-overlay">
+              <div id="credit-content">
+                <div class="order1">
+                  <p>Technologies</p>
+                   
+                    <a href="https://github.com/locomotivemtl/locomotive-scroll" target="_blank">Locomotive Scroll,</a>
+                    <a href="https://gsap.com/" target="_blank">GSAP</a>
+                  
+                </div>
+                <div class="order2">
+                  <p>Fonts</p>
+                   <a href="https://www.collletttivo.it/" target="_blank">Mazius,</a>
+                      <a href="https://www.tinkov.info/" target="_blank">Gilroy</a>
+                </div>
+                <div class="order3">
+                  <p>Design Inspired from</p>
+                   <a href="https://abhishekjha.me/" target="_blank">Abhishek jha</a> 
+                      
+                </div>
+
+
+                <span id="close-btn">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title/><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3.21,11.79a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0L12,13.41l-1.79,1.8a1,1,0,0,1-1.42,0,1,1,0,0,1,0-1.42L10.59,12l-1.8-1.79a1,1,0,0,1,1.42-1.42L12,10.59l1.79-1.8a1,1,0,0,1,1.42,1.42L13.41,12Z" fill="#851717" width="24px" height="24px"/></svg>
+                </span>
+              </div>
+          </div>
+        </div>
       </div>
-
-      <form id="contact-form" action="/contact" method="post">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    
-
     </div>
-    </section>
 
     <script
       src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
       type="module"
     ></script>
-    
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -190,7 +257,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    
+
     <script src="/js/script.js"></script>
   </body>
 </html>

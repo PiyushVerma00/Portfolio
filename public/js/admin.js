@@ -7,15 +7,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             if(!confirm("Are you sure you want to delete?")) return;
             try {
-                const res = await fetch(`/admin/delete/${id}`,{
+                const res = await  fetch(`/admin/delete/${id}`,{
                     method: "DELETE"
-                })
-                if(res.success){
-                    alert("Project deleted successfully")
+                });
+                const data = await res.json()
+                if(res.ok){
+                    alert(data.message || "Project deleted successfully")
                     btn.closest(".project-card").remove()
-                    window.location.reload()
+                    
                 }else{
-                    alert("Error deleting project")
+                    alert( data.message  ||"Error deleting project")
                 }
             } catch (error) {
                 console.log("Error", error);
