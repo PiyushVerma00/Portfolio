@@ -17,29 +17,47 @@
   .page1 {
     height: auto;
   }
-  .nav {
+  .page1 .nav {
     position: relative;
-    height: 60px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5vw;
   }
+  .nav a{
+    font-size: 12px;
+    font-weight: 500;
+  }
 
-  .nav a:first-child {
-    font-size: 20px; /* Adjust size if needed */
+  /* .nav a:first-child {
+    font-size: 20px; 
     font-weight: bold;
-  }
-  .nav a:not(:first-child) {
+  } */
+  /* .nav a:not(:first-child) {
     display: none;
+  } */
+
+  
+
+  /* .hamburger {
+    display: flex;
   }
+
+  .mobile-nav.show {
+    display: flex;
+  }
+   */
   .row {
     /* flex-direction: column; */
     align-items: center;
     justify-content: space-between;
     /* text-align: center; */
     padding: 0 4vw;
+    margin-top: 2vw;
   }
+ 
+ 
   .row h1 {
     font-size: 18vw;
     font-weight: 700;
@@ -47,14 +65,14 @@
   .row .graphic {
     display: none;
   }
-
-  .row:nth-child(3) a {
-    /* position: relative; */
-    font-weight: 300;
-    font-size: 9px;
-    padding: 8px 4px;
-    left: 1%;
-  }
+.row .button{
+  font-weight: 300;
+  font-size: 8px;
+  padding: 7px 5px;
+  left: 1.5%;
+  box-shadow: 0px 4px 10px rgba(100, 20, 20, 0.4);
+  border-radius: 8px;
+}
 
   .about {
     flex-direction: column-reverse; /* Puts text below images */
@@ -62,6 +80,8 @@
     text-align: center;
     padding: 5vw 5vw;
     margin-top: 12vw;
+  border-radius: 8px;
+
   }
 
   .about .image {

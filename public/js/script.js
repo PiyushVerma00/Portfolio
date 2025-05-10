@@ -436,6 +436,8 @@ function animateContactDiv() {
   });
 }
 
+
+
 function animateFooter() {
   const overlay = document.getElementById("credit-overlay");
   const creditBtn = document.getElementById("creditBtn");

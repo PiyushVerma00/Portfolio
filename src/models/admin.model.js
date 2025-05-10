@@ -21,13 +21,17 @@ const adminSchema = mongoose.Schema(
   { timestamps: true }
 );
 
+// const newPassword = 'Ayu@password';
+// bcrypt.hash(newPassword, 10, (err, hash) => {
+//   if (err) throw err;
+//   console.log("Hashed Password:", hash);
+// });
 
-
-// adminSchema.pre("save",async function(next){
-//     if(!this.isModified("password")) return next()
-//    this.password = bcrypt.hash(this.password,10)
-// next()
-// })
+adminSchema.pre("save",async function(next){
+    if(!this.isModified("password")) return next()
+   this.password = bcrypt.hash(this.password,10)
+next()
+})
 
 adminSchema.methods.isPasswordCorrect = async function(password){
  return await bcrypt.compare(password,this.password)

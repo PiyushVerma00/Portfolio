@@ -1,34 +1,41 @@
-function locoInit(){
+function locoInit() {
+  gsap.registerPlugin(ScrollTrigger);
 
-    gsap.registerPlugin(ScrollTrigger);
-    
-const locoScroll = new LocomotiveScroll({
+  const locoScroll = new LocomotiveScroll({
     el: document.querySelector(".main"), // Make sure the class matches your HTML
     smooth: true,
     lerp: 0.08, // Adjust for smoother scrolling
     smartphone: {
-        smooth: true
+      smooth: true,
     },
     tablet: {
-        smooth: true
-    }
-});
+      smooth: true,
+    },
+  });
 
-locoScroll.on("scroll", ScrollTrigger.update);
+  locoScroll.on("scroll", ScrollTrigger.update);
 
-ScrollTrigger.scrollerProxy(".main", {
+  ScrollTrigger.scrollerProxy(".main", {
     scrollTop(value) {
-        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
     },
     getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
     },
-    pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-});
+    pinType: document.querySelector(".main").style.transform
+      ? "transform"
+      : "fixed",
+  });
 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-ScrollTrigger.refresh();
-
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  ScrollTrigger.refresh();
 }
 function animateContactDiv() {
   let mm = gsap.matchMedia();
@@ -36,7 +43,7 @@ function animateContactDiv() {
   mm.add("(min-width: 769px)", () => {
     let t1 = gsap.timeline();
     t1.from(".contact .info", {
-      y: "-80%",
+      y: "-50%",
       opacity: 0,
       stagger: 0.12,
       delay: 0.5,
@@ -101,46 +108,60 @@ function animateContactDiv() {
   });
 }
 
-function animatePojectPage(){
+function animatePojectPage() {
+  let mm = gsap.matchMedia();
 
-  let mm= gsap.matchMedia()
-
-  mm.add('(min-width: 769px', ()=>{
-
+  
     const boxes = document.querySelectorAll(".project-box");
 
     boxes.forEach((box, i) => {
       const image = box.querySelector(".imgcnt");
       const title = box.querySelector(".desc h4");
       const desc = box.querySelector(".desc p");
-  
+
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: box,
+          trigger: image,
           scroller: ".main", // Use only if using Locomotive Scroll
-          start: "top 80%",
+          start: "top 90%",
+          end:"top 60%",
           toggleActions: "play none none reverse",
         },
       });
-  
-      tl
-        .from(title, {
-          x: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-        }, "-=0.4") // overlap
-        .from(desc, {
-          x: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-        }, "-=0.3");
+
+      tl.from(
+          title,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1,
+            ease: "ease.out",
+          },
+          "-=0.4"
+        ) // overlap
+        .from(
+          desc,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            delay:0.2,
+            ease: "ease.out",
+          },
+          "-=0.4"
+        );
     });
-  })
-}
+  
 
   
+ 
+}
+
+
+
+
+
 function animateFooter() {
   const overlay = document.getElementById("credit-overlay");
   const creditBtn = document.getElementById("creditBtn");
@@ -196,55 +217,62 @@ function animateFooter() {
       gsap.set(overlay, { opacity: 1, display: "block" });
       overlay.style.pointerEvents = "auto";
       let t1 = gsap.timeline();
-      t1.from(overlay,{
-        opacity:0,
-        duration:0.3,
-       x:-100,
-        ease:'expoInOut'
-      })
-      .from("#credit-content .order1, #credit-content .order2, #credit-content .order3",
+      t1.from(overlay, {
+        opacity: 0,
+        duration: 0.3,
+        x: -100,
+        ease: "expoInOut",
+      }).from(
+        "#credit-content .order1, #credit-content .order2, #credit-content .order3",
         {
           x: -40,
           opacity: 0,
           stagger: 0.1,
           duration: 0.4,
           ease: "power2.out",
-        })
+        }
+      );
     });
 
-     closeBtn.addEventListener("click", () => {
+    closeBtn.addEventListener("click", () => {
       let t2 = gsap.timeline();
-      t2.to("#credit-content .order1, #credit-content .order2, #credit-content .order3",
+      t2.to(
+        "#credit-content .order1, #credit-content .order2, #credit-content .order3",
         {
           x: -40,
           opacity: 0,
           stagger: 0.1,
           duration: 0.4,
           ease: "power2.out",
-        })
-      .to(overlay, {
+        }
+      ).to(overlay, {
         // scale:1.2,
-        x:-40,
+        x: -40,
         opacity: 0,
-        stagger:0.1,
+        stagger: 0.1,
         // duration: 0.2,
-        delay:-0.3,
+        delay: -0.3,
         ease: "expo.inOut",
         onComplete: () => {
           overlay.style.pointerEvents = "none";
 
           overlay.style.display = "none";
-          gsap.set([overlay,"#credit-content .order1, #credit-content .order2, #credit-content .order3"], { x:0,opacity: 1 });
-      
+          gsap.set(
+            [
+              overlay,
+              "#credit-content .order1, #credit-content .order2, #credit-content .order3",
+            ],
+            { x: 0, opacity: 1 }
+          );
         },
       });
     });
   });
 }
-document.addEventListener("DOMContentLoaded",()=>{
-    locoInit()
-    animatePojectPage()
-    animateContactDiv()
-  
-    animateFooter()
-})
+document.addEventListener("DOMContentLoaded", () => {
+  locoInit();
+  animatePojectPage();
+  animateContactDiv();
+
+  animateFooter();
+});
