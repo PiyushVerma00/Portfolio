@@ -29,132 +29,335 @@ function revealToSpan() {
 
 function loaderAnimation() {
   let t1 = gsap.timeline();
-  t1.from("#loader .child span", {
-    x: window.innerWidth < 768 ? 50 : 100,
-    duration: 0.8,
-    stagger: 0.1,
-    delay: 0.5,
-    ease: Power3.easeInOut,
-  })
-    .to("#loader .parent .child", {
-      y: "-100%",
-      duration: 0.5,
 
-      ease: Circ.easeInOut,
-    })
+  const mm = gsap.matchMedia();
 
-    .to("#loader", {
-      height: 0,
-      duration: 1,
-      ease: Circ.easeInOut,
-      onComplete: function () {
-        animateHomePage();
-      },
-    });
-  if (window.innerWidth <= 799) {
-    // Small screens: Red moves up with loader
-    t1.to("#loader", {
-      height: 0,
-      duration: 0.05,
-      // delay:0.,
-      ease: Circ.easeInOut,
+  mm.add("(max-width:600px)", () => {
+    t1.from("#loader .child span", {
+      x: 50,
+      duration: 0.8,
+      stagger: 0.1,
+      delay: 0.5,
+      ease: Power3.easeInOut,
     })
+      .to("#loader .parent .child", {
+        y: "-100%",
+        duration: 0.5,
+
+        ease: Circ.easeInOut,
+      })
+      .to(
+        "#loader",
+        {
+          height: 0,
+          duration: 1,
+          ease: Circ.easeInOut,
+          onComplete: function () {
+            animateHomePage();
+          },
+        },
+        "-=0.5"
+      )
       .to(
         "#red",
         {
           height: "100%",
           top: 0,
           duration: 0.2,
-          delay: -0.3,
+          delay: -0.8,
           ease: Circ.easeInOut,
         },
         "-=1"
       ) // Sync with loader
       .to("#red", {
         height: 0,
-        duration: 1.5,
+        duration: 1.3,
+        ease: "expo.out",
+        delay: -0.4,
+        onComplete: function () {
+          gsap.set("#red", { top: "100%" });
+        },
+      });
+  });
+
+  mm.add("(min-width:601px) and (max-width:1025px)", () => {
+    let t1 = gsap.timeline();
+
+    t1.from("#loader .child span", {
+      x: 80,
+      duration: 0.8,
+      stagger: 0.1,
+      delay: 0.5,
+      ease: Power3.easeInOut,
+    })
+      .to("#loader .parent .child", {
+        y: "-100%",
+        duration: 0.5,
+        ease: Circ.easeInOut,
+      })
+      .to(
+        "#loader",
+        {
+          height: 0,
+          duration: 1,
+          ease: Circ.easeInOut,
+          onComplete: function () {
+            animateHomePage();
+          },
+        },
+        "-=0.5"
+      )
+      .to(
+        "#red",
+        {
+          height: "100%",
+          top: 0,
+          duration: 0.2,
+          delay: -0.8,
+          ease: Circ.easeInOut,
+        },
+        "-=1"
+      ) // Sync with loader
+      .to("#red", {
+        height: 0,
+        duration: 1.2,
         ease: "expo.out",
         delay: -0.5,
         onComplete: function () {
           gsap.set("#red", { top: "100%" });
         },
       });
-  } else {
-    // Large screens: Keep original delay effect
-    t1.to("#red", {
-      height: "100%",
-      top: 0,
-      duration: 1,
-      delay: -1.7, // Keep original delay for large screens
-      ease: Circ.easeInOut,
-    }).to("#red", {
-      height: "0%",
-      duration: 1.4,
-      delay: -0.8,
-      ease: "expo.out",
-    });
-  }
+  });
+
+  mm.add("(min-width: 1025px)", () => {
+    t1.from("#loader .child span", {
+      x: 100,
+      duration: 0.8,
+      stagger: 0.1,
+      delay: 0.5,
+      ease: Power3.easeInOut,
+    })
+      .to("#loader .parent .child", {
+        y: "-100%",
+        duration: 0.5,
+        ease: Circ.easeInOut,
+      })
+      .to(
+        "#loader",
+        {
+          height: 0,
+          duration: 1,
+          ease: Circ.easeInOut,
+          onComplete: function () {
+            animateHomePage();
+          },
+        },
+        "-=0.5"
+      )
+      .to(
+        "#red",
+        {
+          height: "100%",
+          top: 0,
+          duration: 0.2,
+          delay: -0.8,
+          ease: Circ.easeInOut,
+        },
+        "-=1.2"
+      ) // Sync with loader
+      .to("#red", {
+        height: 0,
+        duration: 1,
+        ease: "expo.out",
+        delay: -0.6,
+      });
+  });
 }
 
 function animateHomePage() {
   let mm = gsap.matchMedia();
 
-  mm.add("(min-width: 769px)", () => {
-    //desktop
+  mm.add("(max-width: 600px)", () => {
+    // 📱 Mobile
     let t1 = gsap.timeline();
-    t1.to(".page1 span .child", {
+
+    t1.to(".nav a", {
       y: 0,
-      duration: 2.5,
-      delay: -1,
-      stagger: 0.15,
-      ease: Power3.easeInOut,
+      opacity: 1,
+      // delay: -0.2,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: Power1.inOut,
     })
-      .to(".nav a", {
+      .to(".page1 span .child", {
+        y: 0,
+        duration: 1,
+        delay: -1,
+        stagger: 0.15,
+        ease: Circ.inout,
+      })
+
+      .to(".row a", {
+        y: 0,
+        duration: 0.3,
+        opacity: 1,
+        delay: -0.7,
+        stagger: 0.1,
+        ease: Power1.inOut,
+      })
+
+      // Optional: Keep scroll-based ones same or simpler
+      .to(".about .content p span", {
         y: 0,
         opacity: 1,
+        stagger: 0.15,
+        ease: Power1.inOut,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".about",
+          scroller: ".main",
+          start: "top 40%",
+          end: "top 10%",
+          // toggleActions: "play none none reverse",
+          scrub: 1,
+        },
+      })
+      .to(".projects .flow h2 span", {
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        ease:Power1.inOut,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".projects",
+          scroller: ".main",
+          start: "top 95%",
+          end: "top 70%",
+          scrub: 1,
+        },
+      });
+  });
+
+  mm.add("(min-width: 601px) and (max-width:1025px)", () => {
+    // tablets
+    let t1 = gsap.timeline();
+    t1.to(".nav a", {
+      y: 0,
+      opacity: 1,
+      // delay: -0.5,
+      duration: 0.5,
+      stagger: 0.09,
+      ease: Power1.easeInOut,
+    })
+      .to(".page1 span .child", {
+        y: 0,
+        duration: 1,
+        delay: -1.1,
+        stagger: 0.09,
+        ease: Circ.inOut,
+      })
+
+      .to(".row a", {
+        y: 0,
+        duration: 0.8,
+        opacity: 1,
+        delay: -0.7,
+        stagger: 0.15,
+        ease: Power2.inOut,
+      })
+      .to(".row .graphic", {
+        x: "-67%",
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        delay: -0.5,
+        ease: Power1.Out,
+      })
+      .to(".about .content p span", {
+        y: 0,
+        opacity: 1,
+        stagger: 0.16, // Creates a delay effect for each span
+        ease: Power1.inOut,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".about",
+          scroller: ".main",
+          start: "top 80%", // Animates when it enters 80% of the viewport
+          end: "top 20%",
+          scrub: 1,
+        },
+      })
+      .to(".projects .flow h2 span", {
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        ease: Power1.inOut,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: ".projects",
+          scroller: ".main",
+          start: "top 80%",
+          end: "top 30%",
+          scrub: 1,
+        },
+      });
+  });
+
+  mm.add("(min-width:1025px", () => {
+    // desktop
+    let t1 = gsap.timeline();
+    t1.to(".nav a", {
+      y: 0,
+      opacity: 1,
+      // delay: -0.5,
+      duration: 0.65,
+      stagger: 0.09,
+      ease: Power1.inOut,
+    })
+      .to(".page1 span .child", {
+        y: 0,
+        duration: 1.1,
         delay: -1,
-        duration: 0.4,
-        stagger: 0.16,
-        ease: Power2.easeInOut,
+        stagger: 0.1,
+        ease: Circ.inout,
       })
 
       .to(".row a", {
         y: 0,
         duration: 0.4,
         opacity: 1,
-        delay: -1,
+        delay: -0.6,
         stagger: 0.15,
-        ease: Power3.easeInOut,
+        ease: Power1.inOut,
       })
       .to(".row .graphic", {
         x: "-67%",
         opacity: 1,
-        duration: 0.8,
-        stagger: 0.16,
-        delay: -1.2,
-        ease: Power3.easeInOut,
+        duration: 0.6,
+        stagger: 0.15,
+        delay: -0.5,
+        ease:  Power1.Out,
       })
       .to(".about .content p span", {
         y: 0,
         opacity: 1,
-        stagger: 0.16, // Creates a delay effect for each span
-        ease: "expo.out",
-        duration: 1.5,
+        stagger: 0.15, // Creates a delay effect for each span
+        ease: Power1.inOut,
+        duration: 1,
         scrollTrigger: {
           trigger: ".about",
           scroller: ".main",
           start: "top 80%", // Animates when it enters 80% of the viewport
-          end: "top 3%", // Ends at 50% viewport height
-          toggleActions: "play none none reverse", // Runs forward, reverses on scroll back
-          scrub: 1, // Smooth transition while scrolling
+          end: "top 20%",
+          scrub: 1,
         },
       })
       .to(".projects .flow h2 span", {
         y: 0,
         opacity: 1,
-        stagger: 0.16,
-        ease: "expo.out",
-        duration: 1.5,
+        stagger: 0.05,
+        ease: Power1.inOut,
+        duration: 0.8,
         scrollTrigger: {
           trigger: ".projects",
           scroller: ".main",
@@ -163,66 +366,8 @@ function animateHomePage() {
           scrub: 1,
         },
       });
-  });
 
-  mm.add("(max-width: 768px)", () => {
-    // 📱 Mobile/Tablet animations (lighter or simpler)
-    let t1 = gsap.timeline();
-
-    t1.to(".page1 span .child", {
-      y: 0,
-      duration: 1.5,
-      delay: -0.3,
-      stagger: 0.15,
-      ease: Power2.easeOut,
-    })
-      .to(".nav a", {
-        y: 0,
-        opacity: 1,
-        delay: -0.7,
-        duration: 0.3,
-        stagger: 0.15,
-        ease: Power1.easeOut,
-      })
-      .to(".row a", {
-        y: 0,
-        duration: 0.3,
-        opacity: 1,
-        delay: -0.5,
-        stagger: 0.15,
-        ease: Power1.easeOut,
-      })
-
-      // Optional: Keep scroll-based ones same or simpler
-      .to(".about .content p span", {
-        y: 0,
-        opacity: 1,
-        stagger: 0.15,
-        ease: "power1.out",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".about",
-          scroller: ".main",
-          start: "top 70%",
-          end: "top 5%",
-          toggleActions: "play none none reverse",
-          scrub: 1,
-        },
-      })
-      .to(".projects .flow h2 span", {
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        ease: "expo.out",
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: ".projects",
-          scroller: ".main",
-          start: "top 98%",
-          end: "top 50%",
-          scrub: 1,
-        },
-      });
+  
   });
 }
 function locoInit() {
@@ -233,14 +378,14 @@ function locoInit() {
   const locoScroll = new LocomotiveScroll({
     el: scrollContainer,
     smooth: true,
-    lerp: 0.06,
-    smartphone: {
+    lerp: 0.05,
+    mobile: {
       smooth: true,
-      lerp: 0.1,
+      lerp: 1,
     },
     tablet: {
       smooth: true,
-      lerp: 0.1,
+      lerp: 0.01,
     },
   });
 
@@ -339,12 +484,21 @@ function imageTilt() {
 //     });
 // }
 function hoverAnimation() {
+  const isMobile = window.matchMedia("(max-width : 600px)").matches;
+
   document.querySelectorAll(".cnt").forEach((cnt) => {
     const title = cnt.querySelector(".image-title");
     const projects = document.querySelector(".projects");
-    cnt.addEventListener("mousemove", () => {
-      cnt.querySelector("img").style.filter = "grayScale(100%)";
+
+    if (isMobile) {
       title.style.opacity = "1";
+    }
+
+    cnt.addEventListener("mousemove", () => {
+      if (!isMobile) {
+        cnt.querySelector("img").style.filter = "grayScale(100%)";
+        title.style.opacity = "1";
+      }
       if (cnt.classList.contains("imageCnt1")) {
         projects.style.backgroundColor = "#C1C6D7";
       } else if (cnt.classList.contains("imageCnt2")) {
@@ -359,84 +513,137 @@ function hoverAnimation() {
     });
 
     cnt.addEventListener("mouseleave", () => {
-      cnt.querySelector("img").style.filter = "grayScale(0)";
-      title.style.opacity = "0";
-      projects.style.backgroundColor = "#f2eae0";
+      if (!isMobile) {
+        cnt.querySelector("img").style.filter = "grayScale(0)";
+        title.style.opacity = "0";
+        projects.style.backgroundColor = "#f2eae0";
+      } else {
+        cnt.querySelector("img").style.filter = "grayScale(0)";
+        projects.style.backgroundColor = "#f2eae0";
+      }
     });
   });
 }
 function animateContactDiv() {
   let mm = gsap.matchMedia();
 
-  mm.add("(min-width: 769px)", () => {
+  mm.add("(max-width: 600px)", () => {
+    // mobile
     let t1 = gsap.timeline();
-    t1.from(".contact .info", {
-      y: "-80%",
+    t1.from([".contact .info", "#contact-form"], {
+      y: "-30%",
       opacity: 0,
-      stagger: 0.12,
-      delay: 0.5,
-      ease: "expo.InOut",
-      duration: 1,
+      stagger: 0.1,
+      // delay: 0.3,
+      ease:  Power4.inOut,
+      duration: 0.5,
       scrollTrigger: {
         trigger: ".contact",
         scroller: ".main",
         start: "top 95%",
-        end: "top 20%",
+        end: "top 60%",
+        scrub: 1,
+      },
+    });
+  });
+
+  mm.add("(min-width: 601px) and (max-width:1024px)", () => {
+    let t1 = gsap.timeline();
+    t1.from(".contact .info", {
+      y: "-70%",
+      opacity: 0,
+      stagger: 0.15,
+      delay: 0.2,
+      ease:  Power1.inOut,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: ".contact",
+        scroller: ".main",
+        start: "top 90%",
+        end: "top 50%",
         scrub: 1,
       },
     })
       .from("#contact-form", {
         y: 400,
-        stagger: 0.12,
-        duration: 1,
+        stagger: 0.15,
+        duration: 0.5,
         opacity: 0,
-        delay: 1,
-        ease: "expo.InOut",
+        delay: 0.5,
+        ease: Power1.inOut,
         scrollTrigger: {
           trigger: ".contact .info",
           scroller: ".main",
-          start: "top 95%",
-          end: "top 20%",
+          start: "top 90%",
+          end: "top 40%",
           scrub: 1,
         },
       })
       .from(".contact-content span", {
         x: "100%",
         opacity: 0,
-        stagger: 0.12,
-        delay: 0.5,
-        ease: "expo.InOut",
+        stagger: 0.15,
+        // delay: 0.,
+        ease: Power1.inOut,
         scrollTrigger: {
           trigger: ".contact",
           scroller: ".main",
           scrub: 1,
           start: "top 95%",
-          end: "top 20%",
+          end: "top 40%",
         },
       });
   });
 
-  mm.add("(max-width: 768px)", () => {
+  mm.add("(min-width:1025px",()=>{
     let t1 = gsap.timeline();
-    t1.from([".contact .info", "#contact-form"], {
-      y: "-30%",
+    t1.from(".contact .info", {
+      y: "-70%",
       opacity: 0,
-      stagger: 0.12,
-      delay: 0.3,
-      ease: "expo.InOut",
+      stagger: 0.15,
+      delay: 0.2,
+      ease:  Power1.inOut,
       duration: 0.5,
       scrollTrigger: {
         trigger: ".contact",
         scroller: ".main",
-        start: "top 95%",
+        start: "top 90%",
         end: "top 50%",
         scrub: 1,
       },
-    });
-  });
+    })
+      .from("#contact-form", {
+        y: 400,
+        stagger: 0.15,
+        duration: 0.5,
+        opacity: 0,
+        delay: 0.5,
+        ease: Power1.inOut,
+        scrollTrigger: {
+          trigger: ".contact .info",
+          scroller: ".main",
+          start: "top 90%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      })
+      .from(".contact-content span", {
+        x: "100%",
+        opacity: 0,
+        stagger: 0.15,
+        // delay: 0.,
+        ease: Power1.inOut,
+        scrollTrigger: {
+          trigger: ".contact",
+          scroller: ".main",
+          scrub: 1,
+          start: "top 95%",
+          end: "top 40%",
+        },
+      });
+  })
+ 
 }
-
-
 
 function animateFooter() {
   const overlay = document.getElementById("credit-overlay");
@@ -445,7 +652,7 @@ function animateFooter() {
 
   let mm = gsap.matchMedia();
 
-  mm.add("(min-width: 769px)", () => {
+  mm.add("(min-width: 601px)", () => {
     creditBtn.addEventListener("click", (e) => {
       e.preventDefault();
       gsap.set(overlay, { opacity: 1, y: 0, display: "block", scale: 1 });
@@ -471,68 +678,92 @@ function animateFooter() {
 
     closeBtn.addEventListener("click", () => {
       let t2 = gsap.timeline();
-      t2.to(overlay, {
+      t2.to(
+        "#credit-content .order1, #credit-content .order2, #credit-content .order3",
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.4,
+          ease: "power2.out",
+        }
+      ).to(overlay, {
         // scale:1.2,
-        // y:0,
+        y: 40,
         opacity: 0,
-        duration: 0.3,
+        stagger: 0.1,
+        // duration: 0.2,
+        delay: -0.3,
         ease: "expo.inOut",
         onComplete: () => {
           overlay.style.pointerEvents = "none";
 
           overlay.style.display = "none";
-          gsap.set(overlay, { y: 0, opacity: 1 });
+          gsap.set(
+            [
+              overlay,
+              "#credit-content .order1, #credit-content .order2, #credit-content .order3",
+            ],
+            { y: 0, opacity: 1 }
+          );
         },
       });
     });
   });
 
-  mm.add("(max-width:768px)", () => {
+  mm.add("(max-width:600px)", () => {
     creditBtn.addEventListener("click", (e) => {
       e.preventDefault();
       gsap.set(overlay, { opacity: 1, display: "block" });
       overlay.style.pointerEvents = "auto";
       let t1 = gsap.timeline();
-      t1.from(overlay,{
-        opacity:0,
-        duration:0.3,
-       x:-100,
-        ease:'expoInOut'
-      })
-      .from("#credit-content .order1, #credit-content .order2, #credit-content .order3",
+      t1.from(overlay, {
+        opacity: 0,
+        duration: 0.3,
+        x: -100,
+        ease: "expoInOut",
+      }).from(
+        "#credit-content .order1, #credit-content .order2, #credit-content .order3",
         {
           x: -40,
           opacity: 0,
           stagger: 0.1,
           duration: 0.4,
           ease: "power2.out",
-        })
+        }
+      );
     });
 
-     closeBtn.addEventListener("click", () => {
+    closeBtn.addEventListener("click", () => {
       let t2 = gsap.timeline();
-      t2.to("#credit-content .order1, #credit-content .order2, #credit-content .order3",
+      t2.to(
+        "#credit-content .order1, #credit-content .order2, #credit-content .order3",
         {
           x: -40,
           opacity: 0,
           stagger: 0.1,
           duration: 0.4,
           ease: "power2.out",
-        })
-      .to(overlay, {
+        }
+      ).to(overlay, {
         // scale:1.2,
-        x:-40,
+        x: -40,
         opacity: 0,
-        stagger:0.1,
+        stagger: 0.1,
         // duration: 0.2,
-        delay:-0.3,
+        delay: -0.3,
         ease: "expo.inOut",
         onComplete: () => {
           overlay.style.pointerEvents = "none";
 
           overlay.style.display = "none";
-          gsap.set([overlay,"#credit-content .order1, #credit-content .order2, #credit-content .order3"], { x:0,opacity: 1 });
-      
+          gsap.set(
+            [
+              overlay,
+              "#credit-content .order1, #credit-content .order2, #credit-content .order3",
+            ],
+            { x: 0, opacity: 1 }
+          );
         },
       });
     });

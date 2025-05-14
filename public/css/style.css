@@ -88,7 +88,7 @@ body {
 .page1 {
   background-color: #f2eae0;
   width: 100%;
-  height: 180vh;
+  /* height: 180vh; */
 }
 .page1 .nav {
   height: 100px;
@@ -151,6 +151,7 @@ body {
   padding: 0 8vw;
   padding-right: 10vw;
   line-height: 1.15;
+  position: relative;
   /* background-color: #fff; */
 }
 .row h1 {
@@ -164,8 +165,8 @@ body {
   justify-content: center;
   width: 22%;
   position: absolute;
-  top: 1.5%;
-  left: 75%;
+  /* bottom: px; */
+  right: 2.5vw;
   /* transform: translat( , -80%); */
   /* height: 300px; */
 }
@@ -268,7 +269,7 @@ body {
 
 .about .content {
   /* display: inline-block; */
-  font-size: 2vw;
+  font-size: 2.2vw;
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -307,7 +308,7 @@ body {
 }
 
 .image .imgcnt:nth-child(1) {
-  position: absolute;
+ 
 
   background-image: url(https://images.unsplash.com/photo-1579268351204-346bc5d22f6e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGdyYXBoaWMlMjBhbmQlMjBjcmVhdGl2ZSUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D);
   background-size: cover;
@@ -331,8 +332,8 @@ body {
 .projects {
   /* width: 100%; */
   margin-top: 0;
-  min-height: 100vh;
-  padding-top: 9vw;
+  /* min-height: 100vh; */
+  padding-top: 15vw;
   padding-bottom: 20vw;
   background-color:  #f2eae0 ;                          
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;   
@@ -419,6 +420,7 @@ body {
   justify-content: space-between;
   position: relative;
   align-items: baseline;
+  position: relative;
 }
 .flow .text {
   color: #851717;
@@ -428,7 +430,11 @@ body {
 .o-ui-arrow {
   width: 5vw;
   transform: rotate(90deg);
-  margin-right: 10vw;
+  /* margin-right: 10vw; */
+  position: absolute;
+  bottom: 40px;
+  right: 10vw;
+ 
 }
 .o-ui-arrow path{
   stroke: #851717;
@@ -438,9 +444,10 @@ body {
 
 
 .contact{
-  position: relative;
+
   width: 100%;
-  min-height: 100vh;
+ 
+  /* height: min-content; */
   background-color: #851717;
   color: #f2eae0;
 }
@@ -525,7 +532,7 @@ body {
 .footer-p{
   color: #f2eae07c;
   text-align: center;
-  padding-bottom: 5vh;
+  padding: 2vh;
  
 }
 .footer-p a{
@@ -538,7 +545,7 @@ color:  #f2eae07c;
   background-color: #f2eae0;
   width: 100%;
  
-  padding: 3vh 4vw;
+  padding: 2vh 3vw;
   bottom: 0; /* Keeps it above footer */
   left: 0;
   transform: translateY(0);

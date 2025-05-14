@@ -43,7 +43,7 @@ const adminLogin = asyncHandler(async(req,res)=>{
         httpOnly:true,
         secure:process.env.NODE_ENV === "production",
         maxAge: 5* 24*60*60*1000,    //5days
-        // sameSite: "strict"
+        sameSite: "None"
     }
 
     return res

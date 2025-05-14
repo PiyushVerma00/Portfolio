@@ -1,19 +1,10 @@
-@media (max-width : 768px) {
-    #loader h1{
-        font-size: 2.5rem;
-    }
-    #red {
-        height: 80vh;
-      }
-}
 
-@media (max-width: 480px) {
-    #loader h1 {
-      font-size: 2rem;
-    }
+
+@media only screen and (max-width: 600px) {
+  #loader h1 {
+    font-size: 2rem;
   }
 
-@media screen and (max-width: 767px) {
   .page1 {
     height: auto;
   }
@@ -25,7 +16,7 @@
     align-items: center;
     padding: 0 5vw;
   }
-  .nav a{
+  .nav a {
     font-size: 12px;
     font-weight: 500;
   }
@@ -37,8 +28,6 @@
   /* .nav a:not(:first-child) {
     display: none;
   } */
-
-  
 
   /* .hamburger {
     display: flex;
@@ -56,8 +45,7 @@
     padding: 0 4vw;
     margin-top: 2vw;
   }
- 
- 
+
   .row h1 {
     font-size: 18vw;
     font-weight: 700;
@@ -65,14 +53,14 @@
   .row .graphic {
     display: none;
   }
-.row .button{
-  font-weight: 300;
-  font-size: 8px;
-  padding: 7px 5px;
-  left: 1.5%;
-  box-shadow: 0px 4px 10px rgba(100, 20, 20, 0.4);
-  border-radius: 8px;
-}
+  .row .button {
+    font-weight: 300;
+    font-size: 8px;
+    padding: 7px 5px;
+    left: 1.5%;
+    box-shadow: 0px 4px 10px rgba(100, 20, 20, 0.4);
+    border-radius: 8px;
+  }
 
   .about {
     flex-direction: column-reverse; /* Puts text below images */
@@ -80,8 +68,7 @@
     text-align: center;
     padding: 5vw 5vw;
     margin-top: 12vw;
-  border-radius: 8px;
-
+    border-radius: 8px;
   }
 
   .about .image {
@@ -102,27 +89,33 @@
     /* right: 10px; */
   }
   .about .content {
-    font-size: 5vw;
+    font-size: 6vw;
     line-height: 1.2;
     margin-top: 78vw;
   }
 
   .projects {
-    padding-top: 2vw;
+
+    padding-top: 3vw;
     padding-bottom: 5vw;
   }
 
   .projects h2 {
     padding: 0 8vw;
-    font-size: 18vw;
-    /* font-weight: 500; */
+    font-size: 20vw;
   }
 
-
+  .cnt {
+    border-radius: 40px;
+    aspect-ratio: 3 / 3.3;
+  }
+  .cnt img{
+    transform: scale(1.12);
+  }
   .o-ui-arrow {
     width: 9vw;
     position: absolute;
-    right: 0;
+    right: 5vw;
     bottom: 10px;
   }
 
@@ -131,15 +124,12 @@
     font-weight: 500;
   }
   .projects .images {
-    /* flex-direction: column; */
-    /* align-items: center; */
-    gap: 8vw;
-    /* justify-content: space-evenly; */
-    padding: 2vw 0;
-    display: flex;
+    gap: 16vw;
+    padding: 5.5vw 0;
     flex-wrap: wrap;
-    justify-content: center;
+  margin-top: 2vw;
 
+    justify-content: center;
   }
   .imageCnt1,
   .imageCnt2,
@@ -147,23 +137,19 @@
   .imageCnt4,
   .imageCnt5 {
     width: 90%;
-    /* margin: 6vw auto; */
-    transform: none !important; /* Remove weird offsets on mobile */
+
+    transform: none !important;
   }
 
-  .image-title{
-    
+  .image-title {
     bottom: 3vw;
     left: 21vw;
-   
+
     padding: 14px 38px;
     font-size: 29px;
-    
   }
 
-  .contact {
-    min-height: 55vh;
-  }
+  
 
   .contact .info h1 {
     font-size: 10vw;
@@ -183,7 +169,7 @@
 
   .contact-content {
     justify-content: center;
-    margin: 5vw 0 
+    margin: 5vw 0;
   }
   #contact-form {
     width: 100%;
@@ -194,37 +180,81 @@
     height: 25vw;
   }
 
-  .footer-p{
-    padding: 4vw 0 ;
+  .footer-p {
+    padding: 4vw 0;
     font-size: 13px;
-  
   }
-  #contact-form input,textarea{
-      height: 10vw;
-      margin: 8px 0;
+  #contact-form input,
+  textarea {
+    height: 10vw;
+    margin: 8px 0;
   }
 
-
-  #credit-overlay{
+  #credit-overlay {
     /* display:block; */
-     padding: 2vw;  
-    
+    padding: 2vw;
   }
-  #credit-content{
+  #credit-content {
     flex-direction: column;
     gap: 15px;
-  line-height: 15px;
-  margin-top: 2vw;
-  padding-left: 2vw;
-
+    line-height: 15px;
+    margin-top: 2vw;
+    padding-left: 2vw;
   }
-  #credit-content p{
+  #credit-content p {
     font-size: 12px;
   }
 
-  #close-btn{
-
+  #close-btn {
     width: 40px;
   }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1025px) {
+  /* Styles for tablets */
+
+  #loader h1 {
+    font-size: 3rem;
+  }
+  .row h1 {
+    font-size: 13vw;
+    font-weight: 500;
+  }
+  .row .graphic{
+    bottom: -2vw;
+  }
  
+  .row .button{
+    left: 10%;
+    padding: 8px;
+  font-size: 12px;
+
+  }
+  .o-ui-arrow {
+   bottom: 8px;
+  }
+  .cnt{
+  border-radius: 40px;
+
+  }
+
+  .contact .info h1{
+    font-size: 8vw;
+    
+  }
+  .info p{
+    font-size: 1.8vw;
+    margin: 1.5vw 0;
+  }
+ 
+  .contact-content{
+   padding: 2vw 2vw 0;
+  }
+  #contact-form{
+    padding: 0 2vw;
+    width: 60%;
+  }
+  .footer-p{
+    padding: 2vh 0;
+  }
 }
