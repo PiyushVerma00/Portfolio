@@ -28,6 +28,8 @@ body {
 
   width: 100%;
   background-color: #f2eae0;
+  overflow: hidden;
+
 
 }
 
@@ -163,9 +165,10 @@ body {
 
 
 .contact{
-  position: relative;
+
   width: 100%;
-  min-height: 100vh;
+ 
+  /* height: min-content; */
   background-color: #851717;
   color: #f2eae0;
 }
@@ -234,7 +237,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 8vw;
-  margin-bottom: 2vw;
+  /* margin-bottom: 2vw; */
 }
 
 .contact-content span{
@@ -242,14 +245,15 @@ body {
 }
 
 .footer{
-width: 100%;
-position: relative;
- padding-bottom: 1vw
+  width: 100%;
+  position: relative;
+
 
 }
 .footer-p{
   color: #f2eae07c;
   text-align: center;
+  padding: 2vh;
  
 }
 .footer-p a{
@@ -262,7 +266,7 @@ color:  #f2eae07c;
   background-color: #f2eae0;
   width: 100%;
  
-  padding: 3vh 4vw;
+  padding: 2vh 3vw;
   bottom: 0; /* Keeps it above footer */
   left: 0;
   transform: translateY(0);

@@ -1,4 +1,4 @@
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 600px) {
   .nav {
     position: relative;
     height: 80px;
@@ -115,4 +115,31 @@
   #close-btn {
     width: 40px;
   }
+}
+
+
+@media only screen and (min-width: 601px) and (max-width: 1025px) {
+.project-box{
+  min-height: 40vh;
+}
+.contact .info h1{
+  font-size: 8vw;
+  
+}
+.info p{
+  font-size: 1.8vw;
+  margin: 1.5vw 0;
+}
+
+.contact-content{
+ padding: 2vw 2vw 0;
+}
+#contact-form{
+  padding: 0 2vw;
+  width: 60%;
+}
+/* .footer-p{
+  padding: 2vh 0;
+} */
+
 }
