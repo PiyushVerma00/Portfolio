@@ -500,15 +500,15 @@ function hoverAnimation() {
         title.style.opacity = "1";
       }
       if (cnt.classList.contains("imageCnt1")) {
-        projects.style.backgroundColor = "#C1C6D7";
+        projects.style.backgroundColor = "#FEB777";
       } else if (cnt.classList.contains("imageCnt2")) {
-        projects.style.backgroundColor = "#FF99A8";
+        projects.style.backgroundColor = "#B3DDC5";
       } else if (cnt.classList.contains("imageCnt3")) {
-        projects.style.backgroundColor = "#DBCABD";
+        projects.style.backgroundColor = "#F7886D";
       } else if (cnt.classList.contains("imageCnt4")) {
-        projects.style.backgroundColor = "#FFBC99";
+        projects.style.backgroundColor = "#12303A";
       } else if (cnt.classList.contains("imageCnt5")) {
-        projects.style.backgroundColor = "#E5B5B3";
+        projects.style.backgroundColor = "#ED0101";
       }
     });
 
